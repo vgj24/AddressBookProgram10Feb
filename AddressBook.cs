@@ -151,6 +151,23 @@ namespace AddressBookProject10FebAssgn
             }
         }
 
+        public static void SortDatabyCity(List<Person> listPersonInCity)
+        {
+
+            listPersonInCity.Sort(delegate (Person x, Person y)
+            {
+                if (x.Address == null && y.Address == null) return 0;
+                else if (x.Address == null) return -1;
+                else if (y.Address == null) return 1;
+                else return x.Address.CompareTo(y.Address);
+            });
+            Console.WriteLine("after sorting by name");
+            foreach (Person person in listPersonInCity)
+            {
+                Console.WriteLine(" {0}\t {1} ",person.Address,person.Name);
+            }
+        }
+
         #endregion
     }
 }
