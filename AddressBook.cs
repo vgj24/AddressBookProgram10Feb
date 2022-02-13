@@ -22,8 +22,8 @@ namespace AddressBookProject10FebAssgn
             listPersonInCity.Add(new Person("203456882", "Winston", "1208 Alex st, Newyork,NY", 65));
             listPersonInCity.Add(new Person("203456883", "Mac", "126 Province Ave, Baltimore,NY", 85));
             listPersonInCity.Add(new Person("203456884", "SAM", "126 Province Ave, Baltimore,NY", 95));
-             Console.WriteLine(listPersonInCity.ToString());
-            listPersonInCity.ForEach(x => Console.WriteLine("{0}\t",x.Name.ToString()));
+            //Console.WriteLine(listPersonInCity.ToString());
+            listPersonInCity.ForEach(x => Console.WriteLine("{0}\t", x.Name.ToString()));
         }
         #endregion
 
@@ -60,7 +60,7 @@ namespace AddressBookProject10FebAssgn
             }
             else
             {
-                Console.WriteLine("no record found for "+Name);
+                Console.WriteLine("no record found for " + Name);
 
             }
             return p;
@@ -73,5 +73,20 @@ namespace AddressBookProject10FebAssgn
             AddressBook.find(Name);
         }
         #endregion
+
+        //UC4 delete persons name using Console
+        #region delete person name using Console
+        public static void DeletepersonName(List<Person> listPersonInCity)
+        {
+            Console.WriteLine("Enter name to be delete");
+            string Name = Console.ReadLine();
+            listPersonInCity.RemoveAll(e => e.Name == Name);
+            // Console.WriteLine(listPersonInCity.ToString());
+            Console.WriteLine("List After deletion of "+Name);
+            listPersonInCity.ForEach(x => Console.WriteLine("{0}\t", x.Name.ToString()));
+
+        }
+        #endregion
+
     }
 }
