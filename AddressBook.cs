@@ -28,16 +28,29 @@ namespace AddressBookProject10FebAssgn
         #endregion
 
         //UC2 to add person name using console
-        #region UC2 to add person Name
+        #region UC2 to add person Name and UC7 checking for duplicate entry
         public static void AddPerson(List<Person> listPersonInCity)
         {
-            listPersonInCity.Add(new Person());
-            listPersonInCity.ForEach(x => Console.WriteLine("{0}\t", x.Name.ToString()));
+            Console.WriteLine("Checking for duplicate entry");
+            Console.WriteLine("enter name of person");
+            string Name = Console.ReadLine();
+            if (listPersonInCity.Exists(e => e.Name == Name))
+            {
+                Console.WriteLine("sorry have an entry for this name already");
+            }
+            else
+            {
+                Console.WriteLine("no entry for this name, you can add your details");
+                listPersonInCity.Add(new Person());
+                Console.WriteLine("Name Added sucessfully");
+                listPersonInCity.ForEach(x => Console.WriteLine("{0}\t", x.Name.ToString()));
+            }
         }
         #endregion
 
         //UC3 Editing Contacts using Console
         #region UC3 Editing Contacts using console
+
         public static Person find(string Name)
         {
             List<Person> listPersonInCity;
@@ -82,11 +95,26 @@ namespace AddressBookProject10FebAssgn
             string Name = Console.ReadLine();
             listPersonInCity.RemoveAll(e => e.Name == Name);
             // Console.WriteLine(listPersonInCity.ToString());
-            Console.WriteLine("List After deletion of "+Name);
+            Console.WriteLine("List After deletion of " + Name);
             listPersonInCity.ForEach(x => Console.WriteLine("{0}\t", x.Name.ToString()));
 
         }
         #endregion
 
+        #region uc7 Checking for dupicate entry
+        public static void duplicateentry(List<Person> listPersonInCity)
+        {
+            Console.WriteLine("enter name to check duplicae entry");
+            string Name = Console.ReadLine();
+            if (listPersonInCity.Count(x => x.Name == Name) > 1)
+            {
+                Console.WriteLine(" there is duplicate entry for this name for " + listPersonInCity.Count(x => x.Name == Name) + "times");
+            }
+            else
+            {
+                Console.WriteLine("no duplicate entry for this name");
+            }
+        }
+        #endregion
     }
 }
