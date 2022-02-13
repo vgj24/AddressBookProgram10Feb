@@ -117,8 +117,8 @@ namespace AddressBookProject10FebAssgn
         }
         #endregion
 
-        //uc8 to search multiple persons in same city or state
-        #region Uc8 to serch person in same city or state
+        //uc8 ,uc9 ,uc 10 to search multiple persons in same city or state
+        #region Uc8 and uc9 ,UC10 to serch person in same city or state
         public static void SameCityStateMates(List<Person> listPersonInCity)
         {
             Console.WriteLine("enter city to search  person in it");
