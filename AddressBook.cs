@@ -24,5 +24,10 @@ namespace AddressBookProject10FebAssgn
             listPersonInCity.ForEach(x => Console.WriteLine("{0}\t",x.Name.ToString()));
 
         }
+       //UC2 to add person name using console
+       public static void AddPerson(List<Person> listPersonInCity)
+        {
+            listPersonInCity.Add(new Person());
+        }
     }
 }
