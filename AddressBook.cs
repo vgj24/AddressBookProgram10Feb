@@ -23,7 +23,7 @@ namespace AddressBookProject10FebAssgn
             listPersonInCity.Add(new Person("203456883", "Mac", "126 Province Ave, Baltimore,NY", 85));
             listPersonInCity.Add(new Person("203456884", "SAM", "126 Province Ave, Baltimore,NY", 95));
             //Console.WriteLine(listPersonInCity.ToString());
-            listPersonInCity.ForEach(x => Console.WriteLine("{0}\t", x.Name.ToString()));
+            listPersonInCity.ForEach(x => Console.WriteLine("{0}\t{1}\t{2}\t{3}", x.SSN,x.Name,x.Address,x.Age.ToString()));
         }
         #endregion
 
@@ -114,6 +114,23 @@ namespace AddressBookProject10FebAssgn
             {
                 Console.WriteLine("no duplicate entry for this name");
             }
+        }
+        #endregion
+
+        //uc8 to search multiple persons in same city or state
+        #region Uc8 to serch person in same city or state
+        public static void SameCityStateMates(List<Person> listPersonInCity)
+        {
+            Console.WriteLine("enter city to search  person in it");
+            string Address = Console.ReadLine();
+            int count = listPersonInCity.Count(x => x.Address == Address);
+            Console.WriteLine("{0} person living in {1}",count,Address);
+            
+            foreach (Person person in listPersonInCity.FindAll(e => e.Address == Address))
+            {
+                Console.WriteLine("Name :" + person.Name );
+            }
+
         }
         #endregion
     }
